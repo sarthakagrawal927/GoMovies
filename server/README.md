@@ -4,6 +4,6 @@ To run the application
 
 ```bash
 
-nodemon --exec cmd/api/main.go
+nodemon --exec cmd/api/*.go
 
 ```
