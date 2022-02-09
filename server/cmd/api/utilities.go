@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"errors"
 	"net/http"
 )
 
@@ -11,6 +12,8 @@ func (app *application) writeJSON(w http.ResponseWriter, status int, data interf
 	js, err := json.Marshal(wrapper)
 
 	if err != nil {
+		app.logger.Print(errors.New("invalid id"))
+		app.errorJSON(w, err)
 		return err
 	}
 
